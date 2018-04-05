@@ -11,11 +11,8 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
-            'name' => 'Jordan',
-            'api_key' => str_random(10),
-            'email' => 'jordanrichmeier@lender411.com', //wishful thinking
-            'password' => bcrypt('secret'),
-        ]);
+        factory(App\User::class, 1)->create()->each(function ($u) {
+            $u->posts()->save(factory(App\Post::class)->make());
+        });
     }
 }
