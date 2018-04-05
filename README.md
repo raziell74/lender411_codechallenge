@@ -1,6 +1,6 @@
 # Lender411 Code Challenge
 
-## Pull Request
+## Easy Code Review
 
 There is a pull request open for the branch **code_challenge**. This is to make it easier for you to review the code for only the files I've touched. When cloneing the project to run it on your local machine please remember to switch to the code_challenge branch as that's where all my work is. 
 
