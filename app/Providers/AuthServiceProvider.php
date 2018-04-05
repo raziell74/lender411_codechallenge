@@ -6,8 +6,10 @@ use Laravel\Passport\Passport;
 Passport::tokensCan([
     'add-team' => 'Add Team',
     'update-team' => 'Update Team',
+    'delete-team' => 'Delete Team',
     'add-player' => 'Add Player',
     'update-player' => 'Update Player',
+    'delete-player' => 'Delete Player',
     'get-team-players' => 'Get Team and Team Players'
 ]);
 use Illuminate\Support\Facades\Gate;
