@@ -1,8 +1,8 @@
 # Lender411 Code Challenge
 
-# Create a REST API using the Laravel PHP framework to model sports teams and their players.
+## Create a REST API using the Laravel PHP framework to model sports teams and their players.
 
-## Be sure to include the following elements:
+### Be sure to include the following elements:
 
 - migration for adding the teams table
 - migration for adding the players table
@@ -13,7 +13,7 @@
 - API endpoint to get a team and its players
 - Bonus: authentication method so only trusted entities may call the APIs
 
-## Schema for teams table (you may add additional fields as needed):
+### Schema for teams table (you may add additional fields as needed):
 
 - id
 - name
@@ -22,7 +22,7 @@
 
 
 
-## Schema for players table (you may add additional fields as needed):
+### Schema for players table (you may add additional fields as needed):
 
 - id
 - first_name
