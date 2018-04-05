@@ -28,6 +28,30 @@ OAuth Passport tokens.
 **User Email**: jordan@lender411.com (It's important to visualize your goals)
 **Password**: secret
 
+## API Endpoints
+
+- Add team: ```[POST] /api/teams``` Payload Example: ```[
+    'name' => 'TeamName', 
+    'players' => [
+        ['first_name' => 'First', 'last_name' => 'Player'],
+        ['first_name' => 'Second', 'last_name' => 'Player']
+    ]
+]```
+- Delete Team: ```[DELETE] /api/teams/{team_id}```
+- Get Team: ```[GET] /api/teams/{team_id}```
+- Get All Teams: ```[Get] /api/teams```
+- Add Player: ```[POST] /api/players``` Payload Example: ```[
+    'first_name' => 'Fred',
+    'last_name' => 'McTest'
+    'team_id' => {id for the team to associate with [optional]}
+]```
+- Update Player: ```[PUT] /api/players/{player_id}``` Payload Example: ```[
+    first_name => 'Update'
+]```
+- Delete Player: ```[DELETE] /api/players/{player_id}```
+- Get Player: ```[GET] /api/players/{player_id}```
+- Get All Players: ```[GET] /api/players```
+
 ## Challenge Parameters
 
 ### Create a REST API using the Laravel PHP framework to model sports teams and their players.
