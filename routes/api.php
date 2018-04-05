@@ -13,6 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
+Route::get('/add-team', function (Request $request) {
     return $request->user();
-});
+})->middleware('scope:add-team');
+
+Route::get('/update-team', function (Request $request) {
+    return $request->user();
+})->middleware('scope:update-team');
+
+Route::get('/add-player', function (Request $request) {
+    return $request->user();
+})->middleware('scope:add-player');
+
+Route::get('/update-player', function (Request $request) {
+    return $request->user();
+})->middleware('scope:update-player');
+
+Route::get('/get-team-players', function (Request $request) {
+    return $request->user();
+})->middleware('scope:get-team-players');

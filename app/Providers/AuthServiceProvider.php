@@ -2,6 +2,14 @@
 
 namespace App\Providers;
 
+use Laravel\Passport\Passport;
+Passport::tokensCan([
+    'add-team' => 'Add Team',
+    'update-team' => 'Update Team',
+    'add-player' => 'Add Player',
+    'update-player' => 'Update Player',
+    'get-team-players' => 'Get Team and Team Players'
+]);
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -25,6 +33,6 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        //
+        Passport::routes();
     }
 }
