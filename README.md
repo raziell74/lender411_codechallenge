@@ -20,6 +20,14 @@ Laravels Passport implementation for OAuth is used in this project.
 When pulling the code please remember to run ```artisan passport:install``` after you run the migrations.
 This will generate the API keys for authentication because they are not included in the migration seeds.
 
+## Frontend API Token Management
+
+If you access the project through a browser you can login with the following credintials to create and manage
+OAuth Passport tokens.
+
+**User Email**: jordan@lender411.com (It's important to visualize your goals)
+**Password**: secret
+
 ## Challenge Parameters
 
 ### Create a REST API using the Laravel PHP framework to model sports teams and their players.
