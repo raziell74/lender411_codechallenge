@@ -4,12 +4,13 @@ namespace App\Providers;
 
 use Laravel\Passport\Passport;
 Passport::tokensCan([
-    'add-teams' => 'Add Team',
-    'delete-teams' => 'Delete Team',
-    'add-player' => 'Add Player',
-    'update-player' => 'Update Player',
-    'delete-player' => 'Delete Player',
-    'view-teams' => 'View Team and Team Players'
+    'view-teams' => 'View Team(s)',
+    'view-players' => 'View Player(s)',
+    'add-teams' => 'Add Teams',
+    'add-players' => 'Add Players',
+    'update-players' => 'Update Players',
+    'delete-teams' => 'Delete Teams',
+    'delete-players' => 'Delete Players'
 ]);
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;

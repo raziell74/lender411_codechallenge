@@ -18,14 +18,8 @@ Route::get('teams/{team}', 'TeamController@get')->middleware('scope:view-teams')
 Route::post('teams', 'TeamController@add')->middleware('scope:add-teams');
 Route::delete('teams/{team}', 'TeamController@delete')->middleware('scope:delete-teams');
 
-Route::get('/add-player', function (Request $request) {
-    return $request->user();
-})->middleware('scope:add-player');
-
-Route::get('/update-player', function (Request $request) {
-    return $request->user();
-})->middleware('scope:update-player');
-
-Route::get('/get-team-players', function (Request $request) {
-    return $request->user();
-})->middleware('scope:get-team-players');
+Route::get('players', 'PlayerController@getAll')->middleware('scope:view-players');
+Route::get('players/{player}', 'PlayerController@get')->middleware('scope:view-players');
+Route::post('players', 'PlayerController@add')->middleware('scope:add-players');
+Route::put('players/{player}', 'PlayerController@update')->middleware('scope:update-players');
+Route::delete('players/{team}', 'PlayerController@delete')->middleware('scope:delete-players');
