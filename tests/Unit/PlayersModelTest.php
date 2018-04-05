@@ -29,6 +29,18 @@ class PlayersModel extends TestCase {
         $this->assertEquals($error_code, 1062);
     }
 
+    public function testCanHaveNoTeam() {
+        factory(\App\Player::class)->create([
+            'first_name' => 'MintBerry',
+            'last_name'  => 'Crunch'
+        ]);
+
+        $this->assertDatabaseHas('players', [
+            'first_name' => 'MintBerry',
+            'last_name'  => 'Crunch'
+        ]);
+    }
+
     public function testGetTeam() {
         factory(\App\Team::class)->create([
             'name' => 'Coon and Friends'
