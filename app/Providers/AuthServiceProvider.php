@@ -10,7 +10,7 @@ Passport::tokensCan([
     'add-player' => 'Add Player',
     'update-player' => 'Update Player',
     'delete-player' => 'Delete Player',
-    'get-team-players' => 'Get Team and Team Players'
+    'view-teams' => 'View Team and Team Players'
 ]);
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
