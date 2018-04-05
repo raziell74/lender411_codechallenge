@@ -21,11 +21,6 @@ class TeamController extends Controller
         return response()->json($team, 201);
     }
 
-    public function update(Request $request, Team $team) {
-        $team->update($request->all());
-        return response()->json($team, 200);
-    }
-
     public function delete(Team $team) {
         $team->delete();
         return response()->json(null, 204);
