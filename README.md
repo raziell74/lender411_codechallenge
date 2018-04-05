@@ -1,5 +1,13 @@
 # Lender411 Code Challenge
 
+## Pull Request
+
+There is a pull request open for the branch **code_challenge**. This is to make it easier for you to review the code for only the files I've touched. When cloneing the project to run it on your local machine please remember to switch to the code_challenge branch as that's where all my work is. 
+
+## Homestead
+
+This is an out of the box laravel homestead project so all the defaults were used within homestead. For example the database is using the default homestead:secret user so if you're not using homestead please ensure to update the .env file for your local set up.
+
 ## Unit Testing changes
 
 I've updated the phpunit files to look at a new database. To ensure phpunit runs properly please create a the **homestead_test** database and grant the homestead user access. 
