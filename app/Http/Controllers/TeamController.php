@@ -17,6 +17,7 @@ class TeamController extends Controller
 
     public function add(Request $request) {
         $team = Team::create($request->all());
+        $team->players()->createMany($request->input('players'));
         return response()->json($team, 201);
     }
 
