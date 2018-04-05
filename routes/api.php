@@ -21,5 +21,5 @@ Route::delete('teams/{team}', 'TeamController@delete')->middleware('scope:delete
 Route::get('players', 'PlayerController@getAll')->middleware('scope:view-players');
 Route::get('players/{player}', 'PlayerController@get')->middleware('scope:view-players');
 Route::post('players', 'PlayerController@add')->middleware('scope:add-players');
-Route::put('players', 'PlayerController@update')->middleware('scope:update-players');
+Route::put('players/{player}', 'PlayerController@update')->middleware('scope:update-players');
 Route::delete('players/{team}', 'PlayerController@delete')->middleware('scope:delete-players');
