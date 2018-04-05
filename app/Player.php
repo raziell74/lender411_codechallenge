@@ -15,7 +15,7 @@ class Player extends Model
 
     public function toArray($includeTeam = true) {
         $data = parent::toArray();
-        if($includeTeam) {
+        if($includeTeam && $this->team) {
             $data['team'] = $this->team->toArray(false);
         }
         return $data;
