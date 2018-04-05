@@ -13,13 +13,22 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::get('/add-team', function (Request $request) {
-    return $request->user();
+Route::post('/add-team', function (Request $request) {
+    return App\Team::create($request->all());
 })->middleware('scope:add-team');
 
-Route::get('/update-team', function (Request $request) {
-    return $request->user();
+Route::put('/update-team', function (Request $request, $id) {
+    $team = App\Team::findOrFail($id);
+    $team->update($request->all());
+
+    return $team;
 })->middleware('scope:update-team');
+
+Route::put('/delete-team', function ($id) {
+    App\Team::find($id)->delete();
+
+    return 204;
+})->middleware('scope:delete-team');
 
 Route::get('/add-player', function (Request $request) {
     return $request->user();
