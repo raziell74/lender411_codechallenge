@@ -50,4 +50,23 @@ class TeamApiEndpointsTest extends TestCase
             ]
         ]);
     }
+
+    public function testDeleteTeam() {
+        $team = factory(\App\Team::class)->create([
+            'name' => 'Shablagoo'
+        ]);
+        $team->players()->saveMany(factory('App\Player', 4)->make());
+        $user = Passport::actingAs(
+            factory(\App\User::class)->create(),
+            ['delete-teams']
+        );
+        $token = $user->accessToken;
+        $headers = ['Authorization' => "Bearer $token"];
+
+        $response = $this->json('DELETE', "/api/teams/{$team->id}", $headers);
+        $teamShablagoo = \App\Team::find($team->id);
+
+        $response->assertStatus(204);
+        $this->assertNull($teamShablagoo);
+    }
 }
