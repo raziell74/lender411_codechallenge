@@ -4,8 +4,8 @@ namespace App\Providers;
 
 use Laravel\Passport\Passport;
 Passport::tokensCan([
-    'add-team' => 'Add Team',
-    'delete-team' => 'Delete Team',
+    'add-teams' => 'Add Team',
+    'delete-teams' => 'Delete Team',
     'add-player' => 'Add Player',
     'update-player' => 'Update Player',
     'delete-player' => 'Delete Player',
