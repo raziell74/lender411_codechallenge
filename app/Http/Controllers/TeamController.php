@@ -7,11 +7,11 @@ use App\Team;
 
 class TeamController extends Controller
 {
-    public function index() {
+    public function getAll() {
         return Team::all();
     }
 
-    public function show(Team $team) {
+    public function get(Team $team) {
         return $team;
     }
 
