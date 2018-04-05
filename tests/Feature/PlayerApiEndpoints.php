@@ -12,22 +12,17 @@ class PlayerApiEndpoints extends TestCase
     public function testPlayersAreCreatedCorrectly() {
         $token = $this->getOAuthToken();
         $headers = ['Authorization' => "Bearer $token"];
-        $team = factory(\App\Team::class)->create([
-            'name' => 'Shablagoo'
-        ]);
+        $team = factory(\App\Team::class)->create();
         $payload = [
-            'team_id' => $team->id,
             'first_name' => 'Jordan',
-            'last_name'  => 'Richmeier'
+            'last_name'  => 'Richmeier',
+            'team_id' => $team->id
         ];
 
         $response = $this->json('POST', '/api/players', $payload, $headers);
-        $output = $response->content();
-        $dbPlayer = \App\Player::find($output['id']);
-        $jsonEquiv = json_decode($dbPlayer->toArray(), true);
+        $output = json_decode($response->content(), true);
 
         $response->assertStatus(201);
-        $this->assertEquals($output, $jsonEquiv);
         $this->assertNotEmpty($output['team']);
         $this->assertEquals($output['first_name'], 'Jordan');
         $this->assertEquals($output['last_name'], 'Richmeier');
@@ -42,14 +37,13 @@ class PlayerApiEndpoints extends TestCase
         ]);
         $payload = ['first_name' => 'Jordan'];
 
-        $response = $this->json('PUT', '/api/players', $payload, $headers);
-        $output = $response->content();
+        $response = $this->json('PUT', "/api/players/{$player->id}", $payload, $headers);
+        $output = json_decode($response->content(), true);
         $dbPlayer = \App\Player::find($output['id']);
 
         $response->assertStatus(201);
         $this->assertEquals($dbPlayer->first_name, 'Jordan');
         $this->assertEquals($output['first_name'], 'Jordan');
-        $this->assertEquals($output['last_name'], 'Richmeier');
     }
 
     public function testDeletePlayer() {
@@ -66,7 +60,7 @@ class PlayerApiEndpoints extends TestCase
         $response->assertStatus(204);
         $this->assertNull($deleted_player);
     }
-    
+
     public function testGetPlayer() {
         $player = factory(\App\Player::class)->create(['first_name' => 'Jordan']);
         $token = $this->getOAuthToken();
