@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('teams', 'TeamController@getAll')->middleware('scope:view-teams');
+Route::get('teams/{team}', 'TeamController@get')->middleware('scope:view-teams');
+Route::post('teams', 'TeamController@add')->middleware('scope:add-teams');
+Route::delete('teams/{team}', 'TeamController@delete')->middleware('scope:delete-teams');
+
+Route::get('players', 'PlayerController@getAll')->middleware('scope:view-players');
+Route::get('players/{player}', 'PlayerController@get')->middleware('scope:view-players');
+Route::post('players', 'PlayerController@add')->middleware('scope:add-players');
+Route::put('players/{player}', 'PlayerController@update')->middleware('scope:update-players');
+Route::delete('players/{team}', 'PlayerController@delete')->middleware('scope:delete-players');
